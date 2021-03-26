@@ -1,0 +1,119 @@
+.details {
+  height: $calc-height;
+  width: 100%;
+  overflow-y: scroll;
+  color: $hover-color;
+  #carouselExampleControls{
+    border-radius: 15px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+.secondary-title{
+  color: $menu-icon-color;
+}
+  .media{
+    flex-basis: 80%;
+    .media-body{
+      span{
+        max-width: 700px;
+        width: 100%;
+        display: block;
+        @include x-large-screen{
+          max-width: 600px;
+        }
+        @include large-screen{
+          max-width: 500px;
+        }
+        @include medium-screen{
+          max-width: 300px;
+        }
+        @include mobile-screen{
+          max-width: 155px;
+        }
+      }
+    }
+  }
+  .img-title {
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    @include medium-screen {
+      width: 100%;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      transition: all 0.3s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    p {
+      span {
+        margin-right: 8px;
+        color: $menu-icon-color;
+      }
+    }
+  }
+.edit-delete-style{
+  cursor: pointer;
+}
+  .slide-wrapper {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    @include medium-screen {
+      height: 250px;
+    }
+
+    .carousel-inner {
+      height: 100% !important;
+
+      .carousel-item {
+        height: 100%;
+
+        img {
+          height: 100% !important;
+          object-fit: cover !important;
+        }
+      }
+    }
+  }
+.circle-img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+  .description {
+    color: $menu-icon-color;
+    margin-top: 10px;
+  }
+.feedback{
+  border-bottom: 1px solid $hover-color ;
+  &:last-child{
+    border-bottom: none;
+  }
+}
+  .description-text {
+    text-indent: 20px;
+  }
+
+  .comment-form {
+    opacity: 0.9;
+    border: none;
+    background-image: $wheat;
+
+    .comment-head {
+    }
+
+    .comment-body {
+      textarea {
+        background-color: #e4e9d3;
+      }
+    }
+  }
+}

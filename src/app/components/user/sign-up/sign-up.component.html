@@ -1,0 +1,170 @@
+<div class="container login-form ">
+  <div class="d-flex justify-content-center h-100">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="title-color">Sign Up</h3>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="OnSubmit()">
+          <div class="mb-4">
+            <div class="input-group form-group mb-0 pb-0">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <svg fill="white" width="15px" height="auto" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1216 832q0-185-131.5-316.5t-316.5-131.5-316.5 131.5-131.5 316.5 131.5 316.5 316.5 131.5 316.5-131.5 131.5-316.5zm512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124-143 0-273.5-55.5t-225-150-150-225-55.5-273.5 55.5-273.5 150-225 225-150 273.5-55.5 273.5 55.5 225 150 150 225 55.5 273.5q0 220-124 399l343 343q37 37 37 90z"/></svg></span>
+              </div>
+              <input type="text" class="form-control" formControlName="Username" placeholder="Username">
+            </div>
+            <div class="mt-0 pt-0"
+                 *ngIf="
+              form.controls['Username'].invalid &&
+              (form.controls['Username'].touched || form.controls['Username'].dirty)
+            ">
+              <small
+                class="form-text text-danger m-0"
+                *ngIf="form.controls['Username'].hasError('required')"
+              >*you must write a username</small>
+              <small
+                class="form-text text-danger m-0"
+                *ngIf="form.controls['Username'].hasError('minlength')"
+              >*min length is 5</small>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="input-group form-group mb-0 pb-0">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><svg width="15px" height="auto" fill="white" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1596 380q28 28 48 76t20 88v1152q0 40-28 68t-68 28h-1344q-40 0-68-28t-28-68v-1600q0-40 28-68t68-28h896q40 0 88 20t76 48zm-444-244v376h376q-10-29-22-41l-313-313q-12-12-41-22zm384 1528v-1024h-416q-40 0-68-28t-28-68v-416h-768v1536h1280zm-928-896q8-11 21-12.5t24 6.5l51 38q11 8 12.5 21t-6.5 24l-182 243 182 243q8 11 6.5 24t-12.5 21l-51 38q-11 8-24 6.5t-21-12.5l-226-301q-14-19 0-38zm802 301q14 19 0 38l-226 301q-8 11-21 12.5t-24-6.5l-51-38q-11-8-12.5-21t6.5-24l182-243-182-243q-8-11-6.5-24t12.5-21l51-38q11-8 24-6.5t21 12.5zm-620 461q-13-2-20.5-13t-5.5-24l138-831q2-13 13-20.5t24-5.5l63 10q13 2 20.5 13t5.5 24l-138 831q-2 13-13 20.5t-24 5.5z"/></svg>
+</span>
+              </div>
+              <input type="text" class="form-control" formControlName="firstname" placeholder="First Name">
+            </div>
+            <div class="mt-0 pt-0"
+                 *ngIf="
+              form.controls['firstname'].invalid &&
+              (form.controls['firstname'].touched || form.controls['firstname'].dirty)
+            ">
+              <small
+                class="form-text text-danger m-0"
+                *ngIf="form.controls['firstname'].hasError('required')"
+              >*required first name</small>
+              <small
+                class="form-text text-danger m-0"
+                *ngIf="form.controls['firstname'].hasError('minlength')"
+              >*min length is 2</small>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="input-group form-group mb-0 pb-0">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><svg width="15px" height="auto" fill="white" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1596 380q28 28 48 76t20 88v1152q0 40-28 68t-68 28h-1344q-40 0-68-28t-28-68v-1600q0-40 28-68t68-28h896q40 0 88 20t76 48zm-444-244v376h376q-10-29-22-41l-313-313q-12-12-41-22zm384 1528v-1024h-416q-40 0-68-28t-28-68v-416h-768v1536h1280zm-928-896q8-11 21-12.5t24 6.5l51 38q11 8 12.5 21t-6.5 24l-182 243 182 243q8 11 6.5 24t-12.5 21l-51 38q-11 8-24 6.5t-21-12.5l-226-301q-14-19 0-38zm802 301q14 19 0 38l-226 301q-8 11-21 12.5t-24-6.5l-51-38q-11-8-12.5-21t6.5-24l182-243-182-243q-8-11-6.5-24t12.5-21l51-38q11-8 24-6.5t21 12.5zm-620 461q-13-2-20.5-13t-5.5-24l138-831q2-13 13-20.5t24-5.5l63 10q13 2 20.5 13t5.5 24l-138 831q-2 13-13 20.5t-24 5.5z"/></svg></span>
+              </div>
+              <input type="text" class="form-control" formControlName="lastname" placeholder="Last Name">
+            </div>
+            <div class="mt-0 pt-0"
+                 *ngIf="
+              form.controls['lastname'].invalid &&
+              (form.controls['lastname'].touched || form.controls['lastname'].dirty)
+            ">
+              <small
+                class="form-text text-danger m-0"
+                *ngIf="form.controls['lastname'].hasError('required')"
+              >*required lastname</small>
+              <small
+                class="form-text text-danger m-0"
+                *ngIf="form.controls['lastname'].hasError('minlength')"
+              >*min length is 2</small>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="input-group form-group mb-0 pb-0">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><svg width="15px" height="auto" fill="white" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z"/></svg></span>
+              </div>
+              <input type="text" class="form-control" formControlName="Email" placeholder="Email">
+            </div>
+            <div class="mt-0 pt-0"
+                 *ngIf="
+              form.controls['Email'].invalid &&
+              (form.controls['Email'].touched || form.controls['Email'].dirty)
+            ">
+              <small
+                class="form-text text-danger m-0"
+                *ngIf="form.controls['Email'].hasError('required')"
+              >*required email</small>
+              <small
+                class="form-text text-danger m-0"
+                *ngIf="form.controls['Email'].hasError('pattern')"
+              >*invalid email</small>
+              <small
+                class="form-text text-danger m-0"
+                *ngIf="form.controls['Email'].hasError('minlength')"
+              >*min length is 5</small>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="input-group form-group mb-0 pb-0">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><svg width="15px" height="auto" fill="white" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1593 349l-640 1280q-17 35-57 35-5 0-15-2-22-5-35.5-22.5t-13.5-39.5v-576h-576q-22 0-39.5-13.5t-22.5-35.5 4-42 29-30l1280-640q13-7 29-7 27 0 45 19 15 14 18.5 34.5t-6.5 39.5z"/></svg></span>
+              </div>
+              <div class="select-wrapper form-control">
+                <select  class="form-select"  [(ngModel)]="cito"  formControlName="cito" required>
+                  <!-- <option value="cairo" selected>Cairo</option> -->
+                  <option [ngValue]="null" [disabled]="true">City</option>
+                  <option *ngFor="let city of cities" value="{{city}}">{{city}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="input-group form-group mb-0 pb-0">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><svg width="15px" height="auto" fill="white" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M832 512q0-80-56-136t-136-56-136 56-56 136q0 42 19 83-41-19-83-19-80 0-136 56t-56 136 56 136 136 56 136-56 56-136q0-42-19-83 41 19 83 19 80 0 136-56t56-136zm851 704q0 17-49 66t-66 49q-9 0-28.5-16t-36.5-33-38.5-40-24.5-26l-96 96 220 220q28 28 28 68 0 42-39 81t-81 39q-40 0-68-28l-671-671q-176 131-365 131-163 0-265.5-102.5t-102.5-265.5q0-160 95-313t248-248 313-95q163 0 265.5 102.5t102.5 265.5q0 189-131 365l355 355 96-96q-3-3-26-24.5t-40-38.5-33-36.5-16-28.5q0-17 49-66t66-49q13 0 23 10 6 6 46 44.5t82 79.5 86.5 86 73 78 28.5 41z"/></svg></span>
+              </div>
+              <input type="password" class="form-control" formControlName="Password" placeholder="Password">
+            </div>
+            <div class="mt-0 pt-0" *ngIf="form.controls['Password'].invalid &&
+              (form.controls['Password'].touched || form.controls['Password'].dirty)">
+              <small class="form-text text-danger"
+                *ngIf="form.controls['Password'].hasError('required')"
+              >required password</small>
+              <small
+                class="form-text text-danger"
+                *ngIf="form.controls['Password'].hasError('minlength')"
+              >min length is 6</small>
+              <small
+                class="form-text text-danger"
+                *ngIf="form.controls['Password'].hasError('maxlength')"
+              >max length is 18</small>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="input-group form-group mb-0 pb-0">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><svg width="15px" height="auto" fill="white" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M832 512q0-80-56-136t-136-56-136 56-56 136q0 42 19 83-41-19-83-19-80 0-136 56t-56 136 56 136 136 56 136-56 56-136q0-42-19-83 41 19 83 19 80 0 136-56t56-136zm851 704q0 17-49 66t-66 49q-9 0-28.5-16t-36.5-33-38.5-40-24.5-26l-96 96 220 220q28 28 28 68 0 42-39 81t-81 39q-40 0-68-28l-671-671q-176 131-365 131-163 0-265.5-102.5t-102.5-265.5q0-160 95-313t248-248 313-95q163 0 265.5 102.5t102.5 265.5q0 189-131 365l355 355 96-96q-3-3-26-24.5t-40-38.5-33-36.5-16-28.5q0-17 49-66t66-49q13 0 23 10 6 6 46 44.5t82 79.5 86.5 86 73 78 28.5 41z"/></svg></span>
+              </div>
+              <input (keyup)="checkPasswords()" type="password" class="form-control" formControlName="confirmpassword"
+                     placeholder="Confirm Password" >
+            </div>
+            <div class="mt-0 pt-0" *ngIf="(!confirm || form.controls['confirmpassword'].invalid ) &&
+              (form.controls['confirmpassword'].touched || form.controls['confirmpassword'].dirty)">
+              <small class="form-text text-danger"
+                     *ngIf="form.controls['confirmpassword'].hasError('required')">required password</small>
+              <small
+                class="form-text text-danger"
+                *ngIf="!confirm">Passwords do not match</small>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="submit" [disabled]="form.invalid" value="Sign Up" class="btn float-right login_btn">
+          </div>
+          <small
+                class="form-text text-danger"
+                >{{erro}}</small>
+        </form>
+      </div>
+      <div class="card-footer">
+        <div class="d-flex justify-content-center links">
+          Already have an account?<a routerLink="/user/login">Sign In</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

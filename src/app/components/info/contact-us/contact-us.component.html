@@ -1,0 +1,41 @@
+<div class="our-team">
+  <div class="about-us">
+    <div class="container">
+
+      <!-- Contact Form -->
+      <div class="body2">
+        <h2 class="text-center">Contact Us</h2>
+        <section id="hire" class="row">
+          <form>
+            <div class="field name-box">
+              <input #name type="text" id="name" placeholder="Who Are You?"/>
+              <label for="name">Name</label>
+              <span class="ss-icon">check</span>
+            </div>
+
+            <div class="field email-box">
+              <input #mail type="text" id="email" placeholder="name@email.com"/>
+              <label for="email">Email</label>
+              <span class="ss-icon">check</span>
+            </div>
+
+            <div class="field msg-box">
+              <textarea #msg id="msg" rows="4" placeholder="Your message goes here..."></textarea>
+              <label for="msg">Msg</label>
+              <span class="ss-icon">check</span>
+            </div>
+
+            <input #inputE class="button mt-3 mb-2" (click)="formMsg(name,mail,msg,inputE)" type="submit" value="Send" />
+            <br>
+            <div *ngIf="invalid === false" class="alert alert-success mt-2" role="alert">
+              Thanks for contact us, we will contact you soon.
+            </div>
+            <div *ngIf="invalid" class="alert alert-warning mt-2" role="alert">
+              *All fields is required
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

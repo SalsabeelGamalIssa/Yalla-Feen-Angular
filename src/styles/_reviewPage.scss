@@ -1,0 +1,43 @@
+
+    .review-component {
+        form {
+            margin-top: 10%;
+
+            input {
+                border-radius: 25px;
+            }
+            textarea{
+                border-radius: 25px;
+                resize: none;
+            }
+            
+            .rate{
+                display: inline !important;
+            }
+            .stars {
+                border: solid 1px $menu-icon-color;
+                border-radius: 15px;
+                span {
+                    color: $menu-icon-color;
+                }
+                .checked{
+                    color: $hover-color;
+                }
+            }
+            button{
+                border-radius: 25px;
+            }
+            .post {
+                background-image: url("/images/Rectangle 69.png");
+                color: $menu-icon-color;
+                background-position: top;
+                background-repeat: no-repeat;
+                outline-color: pink;
+                border-color: white;
+                width: 100px;
+                position: absolute;
+                left: 70%;
+            }
+            
+        }
+    }

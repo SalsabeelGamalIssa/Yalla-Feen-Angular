@@ -1,0 +1,125 @@
+<div class="details">
+  <div class="container text-center mt-5 font-weight-bolder" *ngIf="id === '404'">
+    <h2>Place Not Found...</h2>
+  </div>
+  <div class="container" *ngIf="id !== '404'">
+    <div class="row mt-5">
+      <div class="col-md-4">
+        <h2 class="pr-3">
+          {{ place.title }}
+          <app-favorite [isFavorite]="isFavorite" [placeID]="place._id"></app-favorite>
+        </h2>
+        <div class="d-flex justify-content-center overflow-hidden img-title">
+          <img src="{{ place.images[0] }}" alt="" />
+        </div>
+        <p class="mt-3 d-flex align-items-center" (click)="Render(4000)">
+          <app-rating [placeID]="place._id" [stars]="place.rates"></app-rating>
+          <small class="ml-2 pt-1">({{ place.rating.length }})</small>
+        </p>
+        <p>
+          <span class="secondary-title mr-1 title-color">Working Hours </span><span class="badge badge-success">{{
+            place.createdAt | date: "dd/MM/yyyy"
+            }}</span>
+        </p>
+      </div>
+      <div class="col-md-8">
+        <!-- BootStrap Slider -->
+        <div id="carouselExampleControls" class="carousel slide slide-wrapper" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item {{ i == 0 ? 'active' : '' }}" *ngFor="let image of place.images; let i = index">
+              <img class="d-block w-100" src="{{ image }}" alt="" />
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+        <!-- End Bootstrap Slider -->
+        <!-- place description -->
+        <p class="description title-color">Place Description</p>
+        <p class="description-text">{{ place.description }}</p>
+        <!-- End Place Description -->
+      </div>
+    </div>
+    <br />
+    <!-- Comments -->
+    <div class="wrapper comment-form card">
+      <h3 class="title-color card-header">Feedback's</h3>
+      <div *ngFor="let feedback of place.comments; let index"
+        class="media align-content-center d-flex justify-content-between feedback m-0 p-2 m-1 card-body">
+        <div class="comment-details media">
+          <img class="d-flex mr-3 rounded-circle circle-img" src="{{ feedback.user.avatar }}" alt="" />
+          <div class="media-body">
+            <h5 class="mb-0 title-color">{{ feedback.user.username }}</h5>
+            <span>{{ feedback.text }}</span>
+          </div>
+        </div>
+        <div class="comment-controls" *ngIf="isLogged">
+          <svg (click)="edit(feedback._id, feedback.text)" class="m-2 edit-delete-style" width="17px" height="auto"
+            fill="#5c9b4c" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M888 1184l116-116-152-152-116 116v56h96v96h56zm440-720q-16-16-33 1l-350 350q-17 17-1 33t33-1l350-350q17-17 1-33zm80 594v190q0 119-84.5 203.5t-203.5 84.5h-832q-119 0-203.5-84.5t-84.5-203.5v-832q0-119 84.5-203.5t203.5-84.5h832q63 0 117 25 15 7 18 23 3 17-9 29l-49 49q-14 14-32 8-23-6-45-6h-832q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113v-126q0-13 9-22l64-64q15-15 35-7t20 29zm-96-738l288 288-672 672h-288v-288zm444 132l-92 92-288-288 92-92q28-28 68-28t68 28l152 152q28 28 28 68t-28 68z" />
+          </svg>
+          <svg (click)="delete(feedback._id, index)" class="m-2 edit-delete-style" width="17px" height="auto"
+            fill="#5c9b4c" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z" />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <!-- Comments Form -->
+    <div class="card my-4 comment-form">
+      <h5 class="card-header comment-head title-color">Leave a Comment:</h5>
+      <div class="card-body comment-body">
+        <form>
+          <div class="form-group">
+            <textarea #textarea class="form-control" name="commento" maxlength="120" [(ngModel)]="addedComment"
+              rows="3"></textarea>
+          </div>
+          <button *ngIf="!isEditEnable" type="submit" (click)="addComment(textarea)" class="btn btn-primary">
+            Submit
+          </button>
+          <button *ngIf="isEditEnable" type="submit" (click)="update(textarea)" class="btn btn-danger">
+            Update
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Similar Places -->
+    <h2 class="title-color">You may also like</h2>
+    <div class="row row-cols-1 row-cols-md-3 row-wrapper">
+      <div class="card-wrapper col-xl-4 col-md-4 col" *ngFor="let trip of relatedPlaces; let i = index">
+        <div class="Card1">
+          <div class="photo">
+            <img src="{{ trip.images[0] }}" alt="{{ trip.title }}" />
+          </div>
+          <ul class="details">
+            <li class="details-button btn btn-primary btn-style" routerLink="/trip/details/{{ trip._id }}" (click)="Render(1000)">
+              Show Details
+            </li>
+
+          </ul>
+          <div class="description">
+            <div class="line">
+              <h1 class="product_name">{{ trip.title }}</h1>
+            </div>
+            <p class="summary">
+              {{
+              trip.description.length > 100
+              ? (trip.description | slice: 0:200) + "......"
+              : trip.description
+              }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

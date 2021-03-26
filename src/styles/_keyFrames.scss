@@ -1,0 +1,138 @@
+
+@keyframes skyAnimation1 {
+  0% {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  50%{
+    left: 0;
+    transform: translateX(-100%);
+  }
+  50.0000001%{
+    left: 100%;
+    transform: translateX(100%);
+  }
+  100% {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+@keyframes skyAnimation1-1 {
+  0% {
+    left: 15%;
+    transform: translateX(-50%);
+  }
+  15%{
+    left: 0;
+    transform: translateX(-100%);
+  }
+  15.0000001%{
+    left: 100%;
+    transform: translateX(100%);
+  }
+  100% {
+    left: 15%;
+    transform: translateX(-50%);
+  }
+}
+@keyframes skyAnimation2 {
+  0% {
+    left: 60%;
+    transform: translateX(-50%);
+  }
+  60%{
+    left: 0;
+    transform: translateX(-100%);
+  }
+  60.0000001%{
+    left: 100%;
+    transform: translateX(100%);
+  }
+  100% {
+    left: 60%;
+    transform: translateX(-50%);
+  }
+}
+@keyframes skyAnimation2-2 {
+  0% {
+    left: 20%;
+    transform: translateX(-50%);
+  }
+  20%{
+    left: 0;
+    transform: translateX(-100%);
+  }
+  20.0000001%{
+    left: 100%;
+    transform: translateX(100%);
+  }
+  100% {
+    left: 20%;
+    transform: translateX(-50%);
+  }
+}
+@keyframes skyAnimation3 {
+  0% {
+    left: 70%;
+  }
+  70%{
+    left: 0;
+    transform: translateX(-100%);
+  }
+  70.0000001%{
+    left: 100%;
+    transform: translateX(100%);
+  }
+  100% {
+    left: 70%;
+  }
+}
+@keyframes skyAnimation3-3 {
+  0% {
+    left: 5%;
+    transform: translateX(-50%);
+  }
+  5%{
+    left: 0;
+    transform: translateX(-100%);
+  }
+  5.0000001%{
+    left: 100%;
+    transform: translateX(100%);
+  }
+  100% {
+    left: 5%;
+  }
+}
+@keyframes skyAnimation4 {
+  0% {
+    left: 80%;
+  }
+  80%{
+    left: 0;
+    transform: translateX(-100%);
+  }
+  80.0000001%{
+    left: 100%;
+    transform: translateX(100%);
+  }
+  100% {
+    left: 80%;
+  }
+}
+@keyframes skyAnimation4-4 {
+  0% {
+    left: 30%;
+  }
+  30%{
+    left: 0;
+    transform: translateX(-100%);
+  }
+  30.0000001%{
+    left: 100%;
+    transform: translateX(100%);
+  }
+  100% {
+    left: 30%;
+  }
+}

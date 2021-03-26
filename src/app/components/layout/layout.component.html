@@ -1,0 +1,90 @@
+
+<nav class="container-fluid">
+  <div class="nav-wrapper ">
+    <a routerLink="/" class="logo" [class.deactivate]="IsNavOpen">
+      <img src="assets/images/yalla%20feen%20logo1.png" alt="logo">
+    </a>
+    <button
+      class="search-component btn btn-secondary" [hidden]="IsNavOpen"  [class.active]="IsSearchOpen" >
+      <input #searchInput (focusout)="loseFocusNav()" class="span-style pr-2 pl-2" type="text" placeholder="Find your trip">
+      <span class="icon-search-wrapper" (click)="StartSearch(searchInput)" *ngIf="IsSearchOpen">
+        <svg fill="white" width="15px" height="auto" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1216 832q0-185-131.5-316.5t-316.5-131.5-316.5 131.5-131.5 316.5 131.5 316.5 316.5 131.5 316.5-131.5 131.5-316.5zm512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124-143 0-273.5-55.5t-225-150-150-225-55.5-273.5 55.5-273.5 150-225 225-150 273.5-55.5 273.5 55.5 225 150 150 225 55.5 273.5q0 220-124 399l343 343q37 37 37 90z"/></svg>
+      </span>
+      <span class="icon-search-wrapper" (click)="titleSearch(searchInput)" *ngIf="!IsSearchOpen">
+        <svg fill="white" width="15px" height="auto" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1216 832q0-185-131.5-316.5t-316.5-131.5-316.5 131.5-131.5 316.5 131.5 316.5 316.5 131.5 316.5-131.5 131.5-316.5zm512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124-143 0-273.5-55.5t-225-150-150-225-55.5-273.5 55.5-273.5 150-225 225-150 273.5-55.5 273.5 55.5 225 150 150 225 55.5 273.5q0 220-124 399l343 343q37 37 37 90z"/></svg>
+      </span>
+    </button>
+    <div class="burger-menu-wrapper">
+      <div [hidden]="IsNavOpen" *ngIf="isLogged" class="dropdown user-menu">
+        <button class="dropbtn"><svg width="15px" height="auto"  fill="white" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1536 1399q0 109-62.5 187t-150.5 78h-854q-88 0-150.5-78t-62.5-187q0-85 8.5-160.5t31.5-152 58.5-131 94-89 134.5-34.5q131 128 313 128t313-128q76 0 134.5 34.5t94 89 58.5 131 31.5 152 8.5 160.5zm-256-887q0 159-112.5 271.5t-271.5 112.5-271.5-112.5-112.5-271.5 112.5-271.5 271.5-112.5 271.5 112.5 112.5 271.5z"/></svg></button>
+        <div class="dropdown-content">
+          <a routerLink="/user/profile">Profile</a>
+          <hr class="p-0 m-0">
+          <a routerLink="/user/host-profile">Become a host</a>
+          <hr class="p-0 m-0">
+          <a (click)="logout()">Logout <svg xmlns="http://www.w3.org/2000/svg" width="15px" height="auto"  fill="#5c9b4c" viewBox="0 0 24 24"><path d="M16 9v-4l8 7-8 7v-4h-8v-6h8zm-16-7v20h14v-2h-12v-16h12v-2h-14z"/></svg></a>
+        </div>
+      </div>
+      <button [hidden]="IsNavOpen" *ngIf="!isLogged" routerLink="/user/login" class="btn btn-primary btn-style">Sign In <svg xmlns="http://www.w3.org/2000/svg" width="15px" height="auto" fill="white" viewBox="0 0 24 24"><path d="M10 2v2h12v16h-12v2h14v-20h-14zm0 7.408l2.963 2.592-2.963 2.592v-1.592h-8v-2h8v-1.592zm-2-4.408v4h-8v6h8v4l8-7-8-7z"/></svg></button>
+      <div class="mobile-list-icon" [class.menu-open]="IsNavOpen" id="navIcon" (click)="OpenNav()" >
+        <div class="a"></div>
+        <div class="b"></div>
+        <div class="c"></div>
+      </div>
+    </div>
+  </div>
+  <section class="menu-mobile-list" id="navOpen" [class.active]="IsNavOpen">
+    <a class=" about item-style logo-open" routerLink="/" (click)="OpenNav()">
+      <img src="assets/images/yalla%20feen%20logo2.png" alt="logo">
+    </a>
+    <a class=" services item-style" routerLink="/top-rated" (click)="OpenNav()">Places</a>
+    <a class=" faqs item-style" routerLink="/info/FAQs" (click)="OpenNav()">FAQS</a>
+    <a class=" place-order item-style" routerLink="/info/about-us" (click)="OpenNav()">About Us</a>
+    <a class="contact item-style" routerLink="/info/contact-us" (click)="OpenNav()">CONTACT US</a>
+  </section>
+</nav>
+<div class="sky-wrapper" [class.blur]="isCustom">
+  <div class="sky1-wrapper">
+    <img src="assets/images/sky1.png" alt="">
+  </div>
+  <div class="sky1-1-wrapper">
+    <img src="assets/images/sky1.png" alt="">
+  </div>
+  <div class="sky2-wrapper">
+    <img src="assets/images/sky2.png" alt="">
+  </div>
+  <div class="sky2-2-wrapper">
+    <img src="assets/images/sky2.png" alt="">
+  </div>
+  <div class="sky3-wrapper">
+    <img src="assets/images/sky3.png" alt="">
+  </div>
+  <div class="sky3-3-wrapper">
+    <img src="assets/images/sky3.png" alt="">
+  </div>
+  <div class="sky4-wrapper">
+    <img src="assets/images/sky4.png" alt="">
+  </div>
+  <div class="sky4-4-wrapper">
+    <img src="assets/images/sky4.png" alt="">
+  </div>
+</div>
+<div class="main-bg" [class.blur]="isCustom"></div>
+<router-outlet (activate)="componentAdded($event)"></router-outlet>
+<div [class.active]="isAdvertise" class="Card1 adv" *ngIf="advPlace" >
+  <svg (click)="closeAdv()" class="adv-close" width="22px" height="auto" fill="#5c9b4c" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z"/></svg>
+  <div class="photo">
+    <img src='{{advPlace.image}}' alt="{{advPlace.title}}">
+  </div>
+  <ul class="details">
+    <li class="details-button btn btn-primary btn-style" routerLink="/trip/details/{{advPlace._id}}" (click)="closeAdv()">Show Details</li>
+    <li class="fav"><app-favorite [isFavorite]="false"  [placeID]="advPlace._id"></app-favorite></li>
+    <li class="rating"><app-rating [placeID]="advPlace._id" [stars]='advPlace.rates'></app-rating></li>
+  </ul>
+  <div class="description">
+    <div class="line">
+      <h1 class="product_name">{{advPlace.title}}</h1>
+    </div>
+    <p class="summary"> {{ (advPlace.description.length>100)? (advPlace.description | slice:0:200)+'......':(advPlace.description) }}</p>
+  </div>
+</div>

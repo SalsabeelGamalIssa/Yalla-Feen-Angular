@@ -1,0 +1,90 @@
+.login-form{
+  //height: 100%;
+  align-content: center;
+  height: calc(100vh - 110px);
+  overflow-y: scroll;
+  .card{
+    box-shadow: 0 5px 15px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22) !important;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(185, 214, 233, 0.6) !important;
+  }
+
+  .social_icon span{
+    font-size: 60px;
+    margin-left: 10px;
+    color: $hover-color;
+  }
+
+  .social_icon span:hover{
+    color: white;
+    cursor: pointer;
+  }
+
+  .card-header h3{
+    color: $hover-color;
+  }
+
+  .social_icon{
+    position: absolute;
+    right: 20px;
+    top: -45px;
+  }
+
+  .input-group-prepend span{
+    width: 50px;
+    background-color: $hover-color;
+    color: $light-color;
+    border:0 !important;
+  }
+
+  input:focus{
+    outline: 0 0 0 0  !important;
+    box-shadow: 0 0 0 0 !important;
+
+  }
+
+  .remember{
+    color: $hover-color;
+  }
+
+  .remember input
+  {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
+  }
+
+  .login_btn{
+    color: $light-color;
+    background-color: $hover-color;
+    width: 100px;
+  }
+
+  .login_btn:hover{
+    color: $hover-color;
+    background-color: $light-color;
+  }
+
+  .links{
+    color: $hover-color;
+  }
+
+  .links a{
+    color: $menu-icon-color !important;
+    margin-left: 4px;
+  }
+}
+.select-wrapper{
+  width: 100%;
+  display: inline-block;
+  .form-select{
+    width: 100%;
+    display: inline-block;
+    border: none !important;
+    color: grey;
+    border-radius: 2px;
+  }
+}

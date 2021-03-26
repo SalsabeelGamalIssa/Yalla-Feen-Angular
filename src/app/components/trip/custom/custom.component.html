@@ -1,0 +1,136 @@
+<section class="Custom-form">
+  <div class="container  fix-footer">
+    <div class="Custom-form-wrapper  p-md-5 p-sm-3 p-1 pt-3 pb-3 text-center">
+      <ol class="carousel-indicators carousel-indicators-override mt-3">
+        <li class="carousel-control-style" [class.active]="MyStep===1"></li>
+        <li class="carousel-control-style" [class.active]="MyStep===2"></li>
+        <li class="carousel-control-style" [class.active]="MyStep===3"></li>
+        <li class="carousel-control-style" [class.active]="MyStep===4"></li>
+      </ol>
+      <h2 class="green-button">Custom Place</h2>
+      <div *ngIf="MyStep===1" class="step">
+        <h4 class="step-title mt-5 mb-3">Who are you?</h4>
+        <div class="row row-style">
+          <div *ngFor="let type of types; index as i" [class.not-selected]="VisitorType!==type && VisitorType"
+               [class.selected]="VisitorType==type" class="col-md-3 col-12 col-sm-6 pb-4 option-wrapper ">
+            <div class="img-wrapper img-overlay" (click)="StepChanger('next'); VisitorTypeSelection(i+1)">
+              <img src="assets/images/{{type}}.jpg" alt="">
+            </div>
+            <p class="text-capitalize">{{type}}</p>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="MyStep===2" class="step">
+        <h4 class="step-title mt-5 mb-3">Location</h4>
+        <div class="form-group">
+          <label>City</label>
+          <ng-select class="ng-select-responsive" [items]="cities"
+                     bindLabel="Place city"
+                     [virtualScroll]="true"
+                     bindValue="Place city"
+                     id="LocationCity"
+                     #LocationCity
+                     (change)="StepChanger('next'); City(LocationCity)"
+                     appendTo="body"
+                     placeholder="Choose your Place City...">
+          </ng-select>
+        </div>
+<!--        <div class="form-group">-->
+<!--          <label for="Region">Region</label>-->
+<!--          <ng-select class="ng-select-responsive" [items]="cities"-->
+<!--                     bindLabel="Region"-->
+<!--                     [virtualScroll]="true"-->
+<!--                     bindValue="Region"-->
+<!--                     id="Region"-->
+<!--                     appendTo="body"-->
+<!--                     placeholder="Choose your Place Region...">-->
+<!--          </ng-select>-->
+<!--        </div>-->
+      </div>
+      <div *ngIf="MyStep===3" class="step">
+        <h4 [hidden]="CategorySelected" class="step-title mt-3 mb-3">Select Your Category?</h4>
+        <div [hidden]="CategorySelected" class="row">
+          <div *ngFor="let category of categories; index as i"
+               (click)="i==7||CategorySelection(i)"
+               class="col-md-3 col-6 pb-4 option-wrapper {{i==7&&'not-selected'}}">
+            <div class="img-wrapper img-overlay">
+              <img src="assets/images/{{category.title}}.jpg" alt="">
+            </div>
+            <p>{{category.title}}</p>
+          </div>
+        </div>
+        <div *ngIf="CategorySelected" class="tags-wrapper">
+          <div class="option-wrapper selected mt-3" (click)="CategorySelection(8)">
+            <svg class="option-wrapper-selected-cross" width="25px" height="auto" fill="#5c9b4c"
+                 viewBox="0 0 1792 1792"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z"/>
+            </svg>
+            <div class="img-wrapper mb-0 img-overlay">
+              <img src="assets/images/{{CategorySelected}}.jpg" alt="">
+            </div>
+            <p>{{CategorySelected}}</p>
+          </div>
+          <h4 class="step-title mt-3 mb-3">Select Tag</h4>
+          <div class="form-group">
+            <ng-select class="ng-select-responsive" [items]="Tags"
+                       bindLabel="Tags"
+                       [virtualScroll]="true"
+                       bindValue="Place Tags"
+                       id="Place Tags"
+                       #tag
+                       appendTo="body"
+                       [(ngModel)]="Tags"
+                       (change)="StepChanger('next'); Tag(tag)"
+                       placeholder="Choose From your category Tags ">
+            </ng-select>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="MyStep===4" class="step">
+        <h3 class="step-title mt-3 mb-3">Budget</h3>
+        <label>Select Your Budget in LE</label>
+        <br>
+<!--        <mat-form-field class="example-form-field m-md-3">-->
+<!--          <mat-label>Budget..</mat-label>-->
+<!--          <input matInput #matInput type="number" (change)="Budget(matInput)">-->
+<!--        </mat-form-field>-->
+        <mat-form-field class="example-form-field m-md-3">
+          <mat-label>Budget..</mat-label>
+          <input matInput #matInput type="number" (change)="Budget(matInput)">
+        </mat-form-field>
+<!--        <br>-->
+<!--        <label>Select Place time</label>-->
+<!--        <br>-->
+<!--        <div class="time-picker-wrapper">-->
+<!--          <div class="time-input mr-md-3">-->
+<!--            <ng-select class="ng-select-responsive time-select" [items]="timeArray"-->
+<!--                       bindLabel="From"-->
+<!--                       [virtualScroll]="true"-->
+<!--                       bindValue="From time"-->
+<!--                       appendTo="body"-->
+<!--                       placeholder="From..">-->
+<!--            </ng-select>-->
+<!--            <div (click)="AMorPM('from')" class="pmam">{{isFromAM ? 'PM' : 'AM'}}</div>-->
+<!--          </div>-->
+<!--          <div class="time-input ml-md-3">-->
+<!--            <ng-select class="ng-select-responsive time-select" [items]="timeArray"-->
+<!--                       bindLabel="To"-->
+<!--                       [virtualScroll]="true"-->
+<!--                       bindValue="To time"-->
+<!--                       appendTo="body"-->
+<!--                       placeholder="To..">-->
+<!--            </ng-select>-->
+<!--            <div (click)="AMorPM('to')" class="pmam">{{isToAM ? 'PM' : 'AM'}}</div>-->
+<!--          </div>-->
+<!--        </div>-->
+      </div>
+    </div>
+    <div class="form-footer">
+      <p [class.hidden]="MyStep===1" (click)="StepChanger('back')" class="btn ml-3 next-button">Back</p>
+      <p *ngIf="MyStep!==4 && (MyStep!==3 || CategorySelected)" (click)="StepChanger('next')" class="btn mr-3 next-button">Skip</p>
+      <p *ngIf="MyStep===4" class="btn mr-3 next-button" (click)="searchResult()">Submit</p>
+    </div>
+  </div>
+</section>

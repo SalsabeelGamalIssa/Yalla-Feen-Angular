@@ -1,0 +1,182 @@
+.Custom-form {
+  &.open {
+    body {
+      &:after {
+        filter: blur(4px) grayscale(50%);
+        -webkit-filter: blur(4px) grayscale(50%);
+      }
+    }
+  }
+
+  .fix-footer {
+    border-radius: 25px;
+    color: $hover-color;
+    height: calc(100vh - 110px);
+    background-image: $wheat !important;
+    position: relative;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22) !important;
+    .Custom-form-wrapper {
+      height: 100%;
+      overflow-y: scroll;
+
+      .carousel-indicators-override {
+        bottom: 8px;
+
+        .carousel-control-style {
+          height: 12px !important;
+          width: 12px !important;
+          border-radius: 50%;
+          background: white;
+          cursor: pointer;
+          transition: .5s .15s;
+          border: 1px $hover-color solid;
+
+          &.active {
+            background: $hover-color;
+            box-shadow: 0 0 6px white;
+            pointer-events: none;
+          }
+        }
+      }
+
+      .step {
+        .row-style {
+        }
+
+        .input-style {
+
+        }
+
+        .step-title {
+        }
+
+        .time-picker-wrapper {
+          color: $hover-color;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          @include medium-screen {
+            display: block;
+          }
+
+          .time-input {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 178px;
+            @include medium-screen {
+              margin: 0 auto;
+            }
+
+            .pmam {
+              cursor: pointer;
+              margin-left: 5px;
+            }
+
+            .time-select {
+              width: 100%;
+            }
+          }
+        }
+
+        .ng-select-responsive {
+          width: 55%;
+          margin: 0 auto;
+          @include medium-screen {
+            width: 100%;
+          }
+        }
+
+        .option-wrapper {
+          font-weight: 700;
+          max-width: 210px;
+          min-width: 200px;
+          margin: 0 auto;
+          position: relative;
+
+          .option-wrapper-selected-cross {
+            position: absolute;
+            top: 10px;
+            font-weight: bolder;
+            padding: 5px;
+            cursor: pointer;
+            right: 10px;
+            height: 28px;
+            background-color: rgba(0, 0, 0, 0.51);
+            z-index: 100;
+          }
+
+          &.not-selected {
+            opacity: 0.5;
+          }
+
+          &.selected {
+            .img-wrapper {
+              border: 3px solid $hover-color;
+            }
+
+            p {
+              text-decoration: underline;
+            }
+          }
+
+          .img-wrapper {
+            transition: all 0.4s;
+            cursor: pointer;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 100%;
+            height: 150px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+            &:hover {
+              img{
+                transform: scale(1.2);
+              }
+            }
+            img {
+              width: 100%;
+              height: 100%;
+              transition: all 0.3s;
+            }
+          }
+        }
+      }
+    }
+
+    .form-footer {
+      border-radius: 25px;
+      display: flex;
+      bottom: 0;
+      width: 100%;
+      left: 0;
+      justify-content: space-between;
+      position: absolute;
+      align-items: center;
+      height: 60px;
+
+      p {
+        display: flex;
+        align-items: center;
+        height: 60px;
+        margin: auto;
+        font-size: 18px;
+        cursor: pointer;
+        color: $hover-color;
+        font-weight: bolder;
+        transition: all 0.3s;
+        &:hover {
+          transform: scale(1.2);
+        }
+
+        &.hidden {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+    }
+  }
+}
+
+

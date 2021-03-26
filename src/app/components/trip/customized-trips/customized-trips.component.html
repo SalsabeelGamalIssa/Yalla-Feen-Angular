@@ -1,0 +1,25 @@
+<section class="container home">
+  <div class="container text-center mt-5 font-weight-bolder" *ngIf="places.length === 0">
+    <h2>No Places Found...</h2>
+  </div>
+  <div  class="row row-cols-1 row-cols-md-3  row-wrapper" *ngIf="places.length !== 0" >
+    <div class="card-wrapper col-xl-6 col-md-6 col" *ngFor="let trip of places; let i = index">
+      <div class="Card1" >
+        <div class="photo">
+          <img src='{{trip.images[0]}}' alt="{{trip.title}}">
+        </div>
+        <ul class="details">
+          <li class="details-button btn btn-primary btn-style" routerLink="/trip/details/{{trip._id}}">Show Details</li>
+          <li class="fav"><app-favorite [isFavorite]="isLogged? isFavorite[i]: false"  [placeID]="trip._id"></app-favorite></li>
+          <li class="rating"><app-rating [placeID]="trip._id" [stars]='trip.rates'></app-rating></li>
+        </ul>
+        <div class="description">
+          <div class="line">
+            <h1 class="product_name">{{trip.title}}</h1>
+          </div>
+          <p class="summary">{{trip.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
